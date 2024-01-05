@@ -1,0 +1,19 @@
+git+https://github.com/openai/whisper.git
+pvrecorder
+pydub
+ffmpeg-python
+pinecone-client langchain unstructured InstructorEmbedding
+pandas
+accelerate
+sentence_transformers
+streamlit_chat
+streamlit
+faiss
+tiktoken
+ctransformers
+huggingface_hub
+pypdf
+replicate
+docx2txt
+python-dotenv
+faiss-cpu
