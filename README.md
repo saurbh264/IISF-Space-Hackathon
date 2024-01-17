@@ -38,7 +38,7 @@ We have used multiple open source APIs for achieving our task. The domain wise A
 7. Pre-Processing: [RegEx](https://github.com/python/cpython/tree/3.12/Lib/re/)
 8. QA Chain: [Langchain](https://www.langchain.com/)
 9. LLM: [Mixtral - 8x7B](https://www.langchain.com/)
-10. Web Framework: Django
+10. Web Framework: [Django](https://github.com/django/django)
 
 
 If you want to contribute, open an issue or submit a pull request.
