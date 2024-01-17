@@ -21,13 +21,18 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 - We are fetching the data from websites. Since websites can change, we have created an architecture which allows you to fetch, pre-process and embed data and store it in the FAISS Index Database. Run the following "//Code Here"
 
 ## Flow 
-https://www.speechly.com/blog/analyzing-open-ais-whisper-asr-models-word-error-rates-across-languages
+![WhatsApp Image 2024-01-17 at 21 24 49_082efb10](https://github.com/saurbh264/IISF-Space-Hackathon/assets/126571954/1d10ba60-a7b9-4edd-95be-03fdc03c3988)
+
+##Accuracies
+
+###Whisper
+
 
 ## More examples
 
 ## APIs Used
 
-We have used multiple open source APIs for achieving our task. The domain wise APIs and their GitHub links are below.
+We have used multiple open-source APIs to achieve our task. The domain-wise APIs and their GitHub links are below.
 
 1. Audio Transcription: [OpenAI-Whisper](https://openai.com/research/whisper)
 2. Text Translation: [Argotranslate](https://github.com/argosopentech/argos-translate)
