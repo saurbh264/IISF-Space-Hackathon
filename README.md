@@ -48,7 +48,7 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 | Arabic     	| 0.52  	| 0.53   	| 0.61  	| 0.75 	| 0.9  	| 0.14        	|
 | Hindi      	| 0.6   	| 0.67   	| 0.104 	| 0.11 	|      	| 0.35        	|
 
-![image](https://github.com/saurbh264/IISF-Space-Hackathon/assets/126571954/0ac054f6-63a3-461f-ad2a-49f190c15b17)
+![image](https://github.com/saurbh264/IISF-Space-Hackathon/assets/126571954/795d14f5-df69-4e4b-9c65-2365b25d8cf6)
 
 ## More examples
 
