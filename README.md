@@ -1,6 +1,6 @@
 # Space Hackathon'2023 Repository
 
-This repository contains the works we did for the Space Hackathon'2023 held at Indian International Space Festival 2023.
+This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023.
 
 ## Overview
 
@@ -8,23 +8,37 @@ Explore the projects developed during the hackathon and find the corresponding c
 
 ## Prerequisites
 
-Make sure you have the following installed before running the code:
-
+Our chatbot can be run remotely on Google Colab without installing anything on your system. 
 - [Python](https://www.python.org/) (version X.X.X)
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/your-username/space-hackathon-2023.git`
-2. Navigate to the project directory: `cd space-hackathon-2023`
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run the code: `python your_main_script.py`
+1. Navigate to Google Colab: [colab.research.google.com](https://colab.research.google.com/)
+2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/saurbh264/IISF-Space-Hackathon.git`
 
-## Additional Information
+## Updating the database
 
-- The `requirements.txt` file lists all prerequisites for running the code.
+- We are fetching the data from websites. Since websites can change, we have created an architecture which allows you to fetch, pre-process and embed data and store it in the FAISS Index Database. Run the following "//Code Here"
 
-Feel free to explore individual project directories for more details.
+## Flow 
+https://www.speechly.com/blog/analyzing-open-ais-whisper-asr-models-word-error-rates-across-languages
 
-## Contributing
+## More examples
+
+## APIs Used
+
+We have used multiple open source APIs for achieving our task. The domain wise APIs and their GitHub links are below.
+
+1. Audio Transcription: [OpenAI-Whisper](https://openai.com/research/whisper)
+2. Text Translation: [Argotranslate](https://github.com/argosopentech/argos-translate)
+3. Voice-Recoding: JavaScript API
+4. Embeddings Creation: [hkunlp/instructor-xl](https://huggingface.co/hkunlp/instructor-xl)
+5. Database Used: [FAISS-Index](https://github.com/facebookresearch/faiss)
+6. Web Scraping: [Langchain.webloader](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/)
+7. Pre-Processing: [RegEx](https://github.com/python/cpython/tree/3.12/Lib/re/)
+8. QA Chain: [Langchain](https://www.langchain.com/)
+9. LLM: [Mixtral - 8x7B](https://www.langchain.com/)
+10. Web Framework: Django
+
 
 If you want to contribute, open an issue or submit a pull request.
