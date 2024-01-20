@@ -2,6 +2,11 @@
 
 This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023. This made it to the top 50 finale teams. The problem statement includes building a voice powered chatbot for BHUVAN portal.
 
+## Team Members
+1. Saurabh Kumar Sonkar (https://github.com/saurbh264)
+2. Ayush Sinha (https://github.com/that-coding-kid)
+3. Archita (https://github.com/architawadhwa)
+4. Saatvik Mangal (https://github.com/saatvik0409)
 ## Overview
 The problem statement expects us to build a chatbot that is capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabledinterface. SAARTHI is our voice powered chatbot.
 
@@ -12,7 +17,7 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 ## Getting Started
 
 1. Navigate to Google Colab: [colab.research.google.com](https://colab.research.google.com/)
-2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/that-coding-kid/Saarthi.git`
+2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: 'https://github.com/saurbh264/IISF-Space-Hackathon.git'
 3. The dataset consists of a set of URLs scrapped, preprocessed and saved as a text file.
 
 ## Flow 
