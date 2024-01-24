@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotToggler = document.querySelector(".chatbot-toggler");
     const closeBtn = document.querySelector(".close-btn");
@@ -9,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusIndicator = document.getElementById('statusIndicator');
     const loadingIndicator = document.getElementById('loadingIndicator');
     const statusElement = document.getElementById('status');
-    
+    var selectedLanguage = 'en';
 
     let mediaRecorder;
     let chunks = [];
@@ -21,10 +23,39 @@ document.addEventListener("DOMContentLoaded", () => {
     function showLoadingIndicator() {
                 loadingIndicator.style.display = 'block';
             }
+    window.updateLanguage =function() {
+        selectedLanguage = document.getElementById('languageDropdown').value;
+    }
 
     function hideLoadingIndicator() {
                 loadingIndicator.style.display = 'none';
             }
+    
+async function speakText(text, language) {
+  try {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language;
+    
+    // Wrap the speak function in a promise to catch errors
+    await new Promise((resolve, reject) => {
+      utterance.onend = resolve;
+      utterance.onerror = reject;
+      speechSynthesis.speak(utterance);
+    });
+  } catch (error) {
+    console.error("Error speaking text:", error);
+  }
+}
+
+    function createVoiceButton(text, language) {
+        const voiceButton = document.createElement("button");
+        voiceButton.textContent = "Listen";
+        voiceButton.addEventListener("click", function () {
+            speakText(text, language);
+        });
+        return voiceButton;
+    }
+
     function send_text_query(){
       const textQuery = chatInput.value.trim();
       if (textQuery !== ""){
@@ -32,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         textContainer.className = 'chat-message-container text-message';
         textContainer.textContent = textQuery;
         chatBox.appendChild(textContainer);
+
         
         chatBox.scrollTop = chatBox.scrollHeight;
         const csrfToken = getCSRFToken();
@@ -42,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         'Content-Type': 'application/json',
                         'X-CSRFToken': csrfToken,
                     },
-                    body: JSON.stringify({ text_query: textQuery }),
+                    body: JSON.stringify({ text_query: textQuery , language: selectedLanguage }),
         })
         .then(response => response.json())
                 .then(data => {
@@ -53,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         const answerText = typeof data.answer_text === 'object'
                             ? data.answer_text.text
                             : data.answer_text;
-                        answerContainer.textContent=answer_text;
+                        answerContainer.textContent=answerText;
+
                         chatBox.appendChild(answerContainer);
                         chatBox.scrollTop = chatBox.scrollHeight;
                          }else {
@@ -91,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         const formData = new FormData();
                         formData.append('audio', audioBlob, 'recording.wav');
+                        formData.append('language', selectedLanguage);
                         const csrfToken = getCSRFToken();
                         if (csrfToken) {
                             fetch('/save_audio/', {
@@ -128,6 +162,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                     transcribedContainer.textContent = transcribedText;
                                     answerContainer.textContent = answerText;
+                                    const voiceButton = createVoiceButton(answerText, selectedLanguage);
+                                    answerContainer.appendChild(voiceButton);
                                     chatBox.appendChild(transcribedContainer);
                                     chatBox.appendChild(answerContainer);
                                     chatBox.scrollTop = chatBox.scrollHeight;
@@ -144,12 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (mediaRecorder.state === 'inactive') {
                             mediaRecorder.start();
                             recordButton.textContent = 'Stop';
-                            statusElement.textContent = 'currently';
                             statusIndicator.style.display = 'block';
                         } else {
                             mediaRecorder.stop();
                             recordButton.textContent = 'Record';
-                            statusElement.textContent = 'not';
                             statusIndicator.style.display = 'none';
                         }
                     });
@@ -165,8 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle("show-chatbot");
     });
     sendChatBtn.addEventListener('click', send_text_query);
-    const selectedLanguage = document.getElementById('language-select').value;
-    formData.append('language', selectedLanguage);
 
 });
 
